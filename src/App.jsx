@@ -1,35 +1,41 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import ArrayInput from "@/ui/ArrayInput";
+import ArrayWrapper from "@/ui/ArrayWrapper";
+
+import { useState } from "react";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [arr, setArr] = useState([5, 4, 3, 2, 1]);
+  const [algo, setAlgo] = useState(""); // contains algo key
+  const activeMapper = {
+    bubble: activeBubble,
+    selection: activeSelection,
 
+  };
+
+  function handleEnterArray(arr) {
+    setArr(arr);
+  }
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+    <div className="w-screen">
+      <ArrayInput handleEnterArray={handleEnterArray} />
+      <ArrayWrapper arr={arr} active={activeMapper[algo] || []} />
+      <div className="actions mx-auto mt-8 w-fit space-x-4">
+        <button
+          data-id="bubble"
+        >
+          Bubble sort
+        </button>
+        <button
+          data-id="selection"
+        >
+          Selection sort
         </button>
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;
