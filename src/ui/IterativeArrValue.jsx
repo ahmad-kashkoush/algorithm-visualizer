@@ -1,11 +1,11 @@
-function IterativeArrValue({ index, isActive, val, n }) {
+function IterativeArrValue({ index, activeColor, val, n }) {
   // 110+val to remove negatives
   // max value =210 =>/10=21 =>*
   const height = Math.min(((val + 110) / 10) * 21, 450);
   const width = 100 / n;
   return (
     <span
-      className={` ${isActive ? "bg-red-500" : "bg-blue-500"} `}
+      className={activeColor}
       style={{
         height: `${height}px`,
         width: `${width - 10}%`,
