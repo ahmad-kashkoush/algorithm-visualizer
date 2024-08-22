@@ -27,7 +27,7 @@ function App() {
     setArr(arr);
   }
   return (
-    <div className="w-screen ">
+    <div className="w-screen px-12 py-8">
       <ArrayInput handleEnterArray={handleEnterArray} />
       <ArrayWrapper arr={arr} active={activeMapper[algo] || []} />
       <div className="actions mx-auto mt-8 w-fit space-x-4">
