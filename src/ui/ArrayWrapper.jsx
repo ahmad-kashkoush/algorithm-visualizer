@@ -8,7 +8,7 @@ function ArrayWrapper({ arr, active }) {
           key={i}
           val={val}
           index={i}
-          activeColor={active.find((item) => item.index === i)?.color || "bg-blue-500"}
+          active={active.find((item) => item.index === i)}
           n={arr.length}
         />
       ))}

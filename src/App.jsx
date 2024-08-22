@@ -1,4 +1,5 @@
 import { useBubbleSort } from "@/hooks/useBubbleSort";
+import { useInsertionSort } from "@/hooks/useInsertionSort";
 import { useSelectionSort } from "@/hooks/useSelectionSort";
 import ArrayInput from "@/ui/ArrayInput";
 import ArrayWrapper from "@/ui/ArrayWrapper";
@@ -17,17 +18,22 @@ function App() {
     arr: arr,
     updateArray: setArr,
   });
+  const { handleInsertionSort, active: activeInsertion } = useInsertionSort({
+    arr: arr,
+    updateArray: setArr,
+  });
 
   const activeMapper = {
     bubble: activeBubble,
     selection: activeSelection,
+    insertion: activeInsertion,
   };
 
   function handleEnterArray(arr) {
     setArr(arr);
   }
   return (
-    <div className="w-screen ">
+    <div className="w-screen px-12 py-8">
       <ArrayInput handleEnterArray={handleEnterArray} />
       <ArrayWrapper arr={arr} active={activeMapper[algo] || []} />
       <div className="actions mx-auto mt-8 w-fit space-x-4">
@@ -48,6 +54,15 @@ function App() {
           }}
         >
           Selection sort
+        </button>
+        <button
+          data-id="insertion"
+          onClick={(e) => {
+            handleInsertionSort(e);
+            setAlgo(e.target.dataset.id);
+          }}
+        >
+          Insertion sort
         </button>
       </div>
     </div>
