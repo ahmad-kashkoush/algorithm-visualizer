@@ -16,7 +16,7 @@ function useBubbleSort({ arr, updateArray }) {
                 // number from n-i-1 to n-1 are sorted
                 for (let j = 0; j < n - i - 1; j++) {
                     setActive([
-                        ...Array.from({ length: n - 1 - (n - i - 1) + 1 }, (_, index) => ({ index: n - index , color: "bg-yellow-500" })),
+                        ...Array.from({ length: n - 1 - (n - i - 1) + 1 }, (_, index) => ({ index: n - index, color: "bg-yellow-500" })),
                         { index: j, color: "bg-red-500" },
                         { index: j + 1, color: "bg-green-500" }
 
