@@ -1,5 +1,6 @@
 import { useBubbleSort } from "@/hooks/useBubbleSort";
 import { useInsertionSort } from "@/hooks/useInsertionSort";
+import { useMergeSort } from "@/hooks/useMergeSort";
 import { useSelectionSort } from "@/hooks/useSelectionSort";
 import ArrayInput from "@/ui/ArrayInput";
 import ArrayWrapper from "@/ui/ArrayWrapper";
@@ -22,11 +23,16 @@ function App() {
     arr: arr,
     updateArray: setArr,
   });
+  const { handleMergeSort, active: activeMerge } = useMergeSort({
+    arr: arr,
+    updateArray: setArr,
+  });
 
   const activeMapper = {
     bubble: activeBubble,
     selection: activeSelection,
     insertion: activeInsertion,
+    merge: activeMerge,
   };
 
   function handleEnterArray(arr) {
@@ -63,6 +69,24 @@ function App() {
           }}
         >
           Insertion sort
+        </button>
+        <button
+          data-id="merge"
+          onClick={(e) => {
+            handleMergeSort(e);
+            setAlgo(e.target.dataset.id);
+          }}
+        >
+          Merge sort
+        </button>
+        <button
+          data-id="quick"
+          onClick={(e) => {
+            // todo
+            setAlgo(e.target.dataset.id);
+          }}
+        >
+          Quick sort
         </button>
       </div>
     </div>
