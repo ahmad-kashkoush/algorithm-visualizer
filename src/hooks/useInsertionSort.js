@@ -4,7 +4,7 @@ import { useState } from "react";
 
 function useInsertionSort({ arr, updateArray }) {
     const [active, setActive] = useState([]);
-    // todo: figure out what active elements to set and of what color
+    // done: figure out what active elements to set and of what color
 
     function handleInsertionSort(e) {
         e.preventDefault();
@@ -19,7 +19,7 @@ function useInsertionSort({ arr, updateArray }) {
                     setActive([
                         { index: j + 1, color: "bg-red-500" },
                         { index: j, color: "bg-red-500" },
-                        { index: i, color: "bg-green-500", content:`prev:${key}` }
+                        { index: i, color: "bg-green-500", content: `prev:${key}` }
                     ])
                     await delay(DELAY_TIME);
 
