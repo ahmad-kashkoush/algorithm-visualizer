@@ -1,5 +1,13 @@
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
-
+import {
+  HiAcademicCap,
+  HiArrowRight,
+  HiChevronDown,
+  HiChevronLeft,
+  HiChevronRight,
+  HiChevronUp,
+} from "react-icons/hi2";
 const algos = [
   {
     category: "sort",
@@ -11,24 +19,67 @@ const algos = [
   },
 ];
 
+/** TODO
+ * - Style, position, and padding
+ * - Toggle list button
+ */
 function Sidebar() {
+  const [checked, setChecked] = useState(false);
   return (
-    <ul>
-      {algos.map((cat) => (
-        <li key={cat.category}>
-          <NavLink to={"/sort"}>{cat.category}</NavLink>
-          <ul>
-            {cat.children.map((algo) => (
-              <li key={algo}>
-                <NavLink key={algo} to={`/${cat.category}/${algo}`}>
-                  ----------{algo}
-                </NavLink>
-              </li>
-            ))}
-          </ul>
-        </li>
-      ))}
-    </ul>
+    <div className="flex bg-slate-800">
+      <button
+        className="bg-slate-700"
+        onClick={() => {
+          setChecked((cur) => !cur);
+        }}
+      >
+        {checked ? <HiChevronRight /> : <HiChevronLeft />}
+      </button>
+      <ul hidden={checked} className="py-12">
+        {algos.map((category) => (
+          <CategoryList key={category} category={category} />
+        ))}
+      </ul>
+    </div>
+  );
+}
+/**TODO
+ * - add hover
+ * - add toggle list
+ */
+function CategoryList({ category }) {
+  const [collapsed, setCollapsed] = useState(false);
+  return (
+    <>
+      <li className="mt-4">
+        <div className="flex cursor-pointer items-center justify-start hover:bg-slate-700">
+          <span className="pl-4" onClick={() => setCollapsed((cur) => !cur)}>
+            {collapsed ? <HiChevronUp /> : <HiChevronDown />}
+          </span>
+          <NavLink
+            className={
+              "block py-2 pl-4 pr-12 text-2xl text-slate-300 transition-all hover:text-slate-100"
+            }
+            to={"/sort"}
+          >
+            {category?.category}
+          </NavLink>
+        </div>
+        <ul hidden={collapsed}>
+          {category?.children.map((algo) => (
+            <li className="mt-2 px-12" key={algo}>
+              <NavLink
+                className="text-slate-400"
+                key={algo}
+                to={`/${category?.category}/${algo}`}
+              >
+                {algo}
+              </NavLink>
+            </li>
+          ))}
+        </ul>
+      </li>
+    </>
   );
 }
 export default Sidebar;
