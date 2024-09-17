@@ -19,16 +19,12 @@ const algos = [
   },
 ];
 
-/** TODO
- * - Style, position, and padding
- * - Toggle list button
- */
 function Sidebar() {
   const [checked, setChecked] = useState(false);
   return (
     <div className="flex bg-slate-800">
       <button
-        className="bg-slate-700"
+        className={`font-bold text-slate-100 ${checked ? "bg-slate-900 hover:bg-slate-700" : "bg-slate-700 hover:bg-slate-900"}`}
         onClick={() => {
           setChecked((cur) => !cur);
         }}
@@ -43,22 +39,18 @@ function Sidebar() {
     </div>
   );
 }
-/**TODO
- * - add hover
- * - add toggle list
- */
 function CategoryList({ category }) {
   const [collapsed, setCollapsed] = useState(false);
   return (
     <>
       <li className="mt-4">
-        <div className="flex cursor-pointer items-center justify-start hover:bg-slate-700">
+        <div className="flex cursor-pointer items-center justify-start">
           <span className="pl-4" onClick={() => setCollapsed((cur) => !cur)}>
             {collapsed ? <HiChevronUp /> : <HiChevronDown />}
           </span>
           <NavLink
             className={
-              "block py-2 pl-4 pr-12 text-2xl text-slate-300 transition-all hover:text-slate-100"
+              "block py-2 pl-4 pr-12 text-2xl text-slate-300 transition-all"
             }
             to={"/sort"}
           >
