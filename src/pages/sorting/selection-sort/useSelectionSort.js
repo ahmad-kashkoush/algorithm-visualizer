@@ -7,6 +7,7 @@ function useSelectionSort({ arr, updateArray }) {
     const [active, setActive] = useState([]);
 
     function handleSelectionSort(e) {
+        e.preventDefault();
         (async function () {
             const newArr = [...arr];
             for (let start = 0; start < newArr.length; start++) {
@@ -34,7 +35,7 @@ function useSelectionSort({ arr, updateArray }) {
 
 
     }
-    return { active, handleSelectionSort }
+    return { active, handleSort:handleSelectionSort}
 
 
 

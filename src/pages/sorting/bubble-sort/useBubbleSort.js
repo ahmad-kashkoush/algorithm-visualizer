@@ -1,5 +1,5 @@
 import { DELAY_TIME } from "@/utils/constans";
-import { clearTimeouts, delay } from "@/utils/helpers";
+import { delay } from "@/utils/helpers";
 import { useState } from "react";
 
 
@@ -39,6 +39,6 @@ function useBubbleSort({ arr, updateArray }) {
     }
 
 
-    return { handleBubbleSort, active };
+    return { handleSort: handleBubbleSort, active };
 }
 export { useBubbleSort };

@@ -6,6 +6,7 @@ function useInsertionSort({ arr, updateArray }) {
     const [active, setActive] = useState([]);
     // done: figure out what active elements to set and of what color
 
+
     function handleInsertionSort(e) {
         e.preventDefault();
 
@@ -40,7 +41,7 @@ function useInsertionSort({ arr, updateArray }) {
     }
 
 
-    return { active, handleInsertionSort };
+    return { active, handleSort: handleInsertionSort };
 
 
 }

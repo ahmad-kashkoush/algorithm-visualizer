@@ -14,6 +14,7 @@ function IterativeArrValue({ index, active, val, n }) {
       }}
     >
       {activeContent && (
+        // TODO: add a tooltips
         <p className="bg-yellow-500 text-black"
           style={{
             position: "absolute",

@@ -80,7 +80,6 @@ function useMergeSort({ arr, updateArray }) {
 
     function handleMergeSort(e) {
         e.preventDefault();
-        console.log("Merge sort algoirthm");
         // todo: create merge sort algorithm
         let newArr = [...arr];
         mergeSort(newArr, 0, newArr.length - 1, updateArray, setActive)
@@ -89,7 +88,7 @@ function useMergeSort({ arr, updateArray }) {
     }
 
 
-    return { active, handleMergeSort };
+    return { active, handleSort: handleMergeSort };
 }
 export { useMergeSort };
 
