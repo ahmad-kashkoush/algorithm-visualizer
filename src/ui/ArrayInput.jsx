@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function ArrayInput({ handleEnterArray }) {
+function ArrayInput({ handleEnterArray, isSorted }) {
   const [length, setLength] = useState(10);
   function handleSubmitRandom(e) {
     e.preventDefault();
@@ -9,12 +9,12 @@ function ArrayInput({ handleEnterArray }) {
       let randomNumber = Math.floor(Math.random() * 100) + 1;
 
       if (!arr.includes(randomNumber)) arr.push(randomNumber);
-     
     }
-    handleEnterArray(arr);
+    let resArr = isSorted ? arr.sort((a, b) => a - b) : arr;
+    handleEnterArray(resArr);
   }
   return (
-    <div className=" flex justify-center items-center gap-4 mb-8">
+    <div className="mb-8 flex items-center justify-center gap-4">
       <span>Length: {length}</span>
       <input
         type="range"
