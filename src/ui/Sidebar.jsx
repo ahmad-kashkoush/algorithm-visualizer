@@ -44,18 +44,18 @@ function CategoryList({ category }) {
   return (
     <>
       <li className="mt-4">
-        <div className="flex cursor-pointer items-center justify-start">
-          <span className="pl-4" onClick={() => setCollapsed((cur) => !cur)}>
+        <div className="flex  items-center justify-start">
+          <span className="pl-4 cursor-pointer" onClick={() => setCollapsed((cur) => !cur)}>
             {collapsed ? <HiChevronUp /> : <HiChevronDown />}
           </span>
-          <NavLink
+          <span
             className={
               "block py-2 pl-4 pr-12 text-2xl text-slate-300 transition-all"
             }
-            to={"/sort"}
+            // to={"/sort"}
           >
             {category?.category}
-          </NavLink>
+          </span>
         </div>
         <ul hidden={collapsed}>
           {category?.children.map((algo) => (
