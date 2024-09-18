@@ -1,4 +1,5 @@
 import BinarySearch from "@/pages/searching/binary-search/BinarySearch";
+import IterativeSearch from "@/pages/searching/iterative-search/IterativeSearch";
 import BubbleSort from "@/pages/sorting/bubble-sort/BubbleSort";
 import InsertionSort from "@/pages/sorting/insertion-sort/InsertionSort";
 import MergeSort from "@/pages/sorting/merge-sort/MergeSort";
@@ -21,6 +22,7 @@ const router = createBrowserRouter([
       { path: "/sort/merge-sort", element: <MergeSort /> },
       // searching
       { path: "/search/binary-search", element: <BinarySearch /> },
+      { path: "/search/iterative-search", element: <IterativeSearch /> },
 
     ],
     // add outlets
