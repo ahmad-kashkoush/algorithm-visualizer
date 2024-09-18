@@ -3,7 +3,9 @@ import { delay } from "@/utils/helpers";
 import { useState } from "react";
 
 
-// todo: know how to stop updating in cases like enter new array or clicking on stop button
+/** TODO
+ *  -  Stop update when changing array or clicking stop button
+ */
 function useBubbleSort({ arr, updateArray }) {
     const [active, setActive] = useState([]);
     function handleBubbleSort(e) {
