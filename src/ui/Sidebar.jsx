@@ -22,6 +22,7 @@ const algos = [
 function Sidebar() {
   const [checked, setChecked] = useState(false);
   return (
+    
     <div className="flex bg-slate-800">
       <button
         className={`font-bold text-slate-100 ${checked ? "bg-slate-900 hover:bg-slate-700" : "bg-slate-700 hover:bg-slate-900"}`}
@@ -31,7 +32,10 @@ function Sidebar() {
       >
         {checked ? <HiChevronRight /> : <HiChevronLeft />}
       </button>
-      <ul hidden={checked} className="py-12">
+      <ul hidden={checked} className="py-5 ">
+        <div className="flex items-center justify-center">
+          <img className="w-20 " src="/public/logo1.png"/>
+        </div>
         {algos.map((category) => (
           <CategoryList key={category} category={category} />
         ))}
