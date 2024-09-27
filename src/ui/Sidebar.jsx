@@ -34,7 +34,7 @@ function Sidebar() {
       </button>
       <ul hidden={checked} className="py-5 ">
         <div className="flex items-center justify-center">
-          <img className="w-20 " src="/public/logo1.png"/>
+          <img className="w-20 " src="logo1.png"/>
         </div>
         {algos.map((category) => (
           <CategoryList key={category} category={category} />
